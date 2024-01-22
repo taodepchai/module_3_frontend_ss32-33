@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Information</title>
+  </head>
+  <body>
+    <script>
+      let books = [];
+      let n = +prompt("nhap vao so sach");
+      for (let i = 0; i < n; i++) {
+        var book = {
+          author: "",
+          name: "",
+        };
+        book.author = prompt("tac gia");
+        book.name = prompt("nhap ten");
+        books.push(book);
+      }
+      let find = prompt("nhap vao tac gia can tim");
+      for (let i = 0; i < n; i++) {
+        if (books[i].author === find) {
+          console.log(books[i]);
+        }
+      }
+    </script>
+  </body>
+</html>

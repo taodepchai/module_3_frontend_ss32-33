@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let users = [];
+
+      function validate_user_name(user_name) {
+        return user_name.length >= 3;
+      }
+
+      function validate_email(email) {
+        let email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return email_regex.test(email);
+      }
+
+      function validate_password(password) {
+        return password.length >= 8;
+      }
+      function login(user_name, password, users) {
+        for (let key in users) {
+          if (
+            listUser[key].user_name === user_name &&
+            listUser[key].password === password
+          ) {
+            console.log("Dang nhap thanh cong");
+            return;
+          }
+        }
+        console.log("Dang nhap ko thanh cong");
+        return;
+      }
+      let choice = +prompt("nhap lua chon");
+      if (choice === 1) {
+        do {
+          var user = {
+            id: "",
+            user_name: "",
+            email: "",
+            password: "",
+          };
+          user.id = prompt("nhap id");
+          user.user_name = prompt("nhap ten");
+          user.email = prompt("nhap email");
+          user.password = prompt("nhap mat khau");
+        } while (
+          !validate_user_name(user.user_name) ||
+          !validate_email(user.email) ||
+          !validate_password(user.password)
+        );
+        users.push(user);
+      }
+      if (choice === 2) {
+        let user_name = prompt("nhap ten dang nhap");
+        let password = prompt("nhap mat khau");
+        login(user_name, password, users);
+      }
+    </script>
+  </body>
+</html>
